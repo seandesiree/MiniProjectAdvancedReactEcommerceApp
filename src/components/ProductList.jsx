@@ -2,7 +2,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../store';
+import { addToCart } from '../components/store';
 
 const fetchProducts = async () => {
   const response = await fetch('https://fakestoreapi.com/products');
