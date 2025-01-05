@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Store from './components/store';
+import Store from './components/Store';
 import Login from './components/Login';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/ShoppingCart';
