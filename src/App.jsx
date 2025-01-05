@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './components/store';
+import Store from './components/store';
 import Login from './components/Login';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/ShoppingCart';
@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <I18nextProvider i18n={i18n}>
-      <Provider store={store}>
+      <Provider store={Store}>
         <Router>
           <Routes>
             <Route path="/" element={<Login />}/>

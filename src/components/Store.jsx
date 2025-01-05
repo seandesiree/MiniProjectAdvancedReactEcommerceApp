@@ -27,11 +27,11 @@ export const { addToCart, removeFromCart, updateCartItem, clearCart } = cartSlic
 const cartFromStorage = JSON.parse(sessionStorage.getItem('cart'));
 const preloadedState = cartFromStorage ? { cart: cartFromStorage } : undefined;
 
-const store = configureStore({
+const Store = configureStore({
   reducer: {
     cart: cartSlice.reducer,
   },
   preloadedState,
 });
 
-export default store;
+export default Store;
