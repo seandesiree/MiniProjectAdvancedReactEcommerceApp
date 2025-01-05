@@ -7,13 +7,19 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(email)
     const response = await fetch('https://fakestoreapi.com/auth/login', {
       method: 'POST',
-      body: JSON.stringify({ username: email, password }),
+      body: { username: email, password },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
+    
     const data = await response.json();
+    console.log(data)
     sessionStorage.setItem('token', data.token);
-    sessionStorage.setItem('user', JSON.stringify(data.user));
+    // sessionStorage.setItem('user', JSON.stringify(data.user));
     alert('Logged in successfully!');
     onLogin(data.user);
   };
