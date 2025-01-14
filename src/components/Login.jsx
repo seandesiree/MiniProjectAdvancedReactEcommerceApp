@@ -11,7 +11,7 @@ const Login = ({ onLogin }) => {
 
       const response = await fetch('https://fakestoreapi.com/auth/login', {
         method: 'POST',
-        body: JSON.stringify({ username, password }), 
+        body: JSON.stringify({ username, password }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -37,15 +37,11 @@ const Login = ({ onLogin }) => {
         throw new Error('User not found.');
       }
 
- 
       sessionStorage.setItem('user', JSON.stringify(user));
-
-
-      alert('Logged in successfully!');
-
 
       onLogin(user);
 
+      alert('Logged in successfully!');
     } catch (error) {
       console.error('Login error:', error);
       alert(`Login failed: ${error.message}`);

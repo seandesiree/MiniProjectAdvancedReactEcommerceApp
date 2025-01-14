@@ -1,8 +1,20 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import Cart from './Cart';
+import { render, fireEvent, getAllByText } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import Store from './Store';
+import ShoppingCart from './ShoppingCart';
+
+global.fetch = jest.fn();
+
+global.sessionStorage = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+};
+
+global.alert = jest.fn();
+
+console.log = jest.fn();
+console.error = jest.fn();
 
 test('renders cart items and handles checkout', () => {
 
@@ -13,10 +25,11 @@ test('renders cart items and handles checkout', () => {
 
   const { getByText, queryByText } = render(
     <Provider store={Store}>
-      <Cart />
+      <ShoppingCart />
     </Provider>
   );
 
+  
   expect(getByText('Test Product')).toBeInTheDocument();
 
   const checkoutButton = getByText('Checkout');

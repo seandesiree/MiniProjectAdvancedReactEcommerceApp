@@ -2,6 +2,17 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import Login from './Login';
 
+global.fetch = jest.fn();
+
+global.sessionStorage = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+};
+
+global.alert = jest.fn();
+
+console.log = jest.fn();
+console.error = jest.fn();
 
 test('renders login form and submits credentials', async () => {
   const mockSetAuthToken = jest.fn();
