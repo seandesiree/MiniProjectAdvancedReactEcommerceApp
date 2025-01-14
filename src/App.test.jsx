@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import '@testing-library/jest-dom'; // Add this for additional matchers
+import '@testing-library/jest-dom'; 
 
-// Mock implementations
+
 global.fetch = jest.fn();
 
 global.sessionStorage = {
